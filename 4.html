@@ -97,6 +97,24 @@ p {
 #music-btn:hover {
   background: white;
 }
+#back-btn {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  padding: 10px 16px;
+  font-family: 'Zeyada', cursive;
+  font-size: 22px;
+  background: rgba(255,255,255,0.85);
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+  z-index: 9999;
+}
+
+#back-btn:hover {
+  background: white;
+}
 
 
 </style>
@@ -151,6 +169,8 @@ p {
 <!-- Music toggle button -->
 <button id="music-btn">🔊 Play Music</button>
 
+<!-- Back Button -->
+<button id="back-btn">⬅️ Go Back</button>
 
 </body>
 <script>
@@ -262,6 +282,14 @@ document.addEventListener("click", () => {
     playing = true;
   }
 }, { once: true });
+document.getElementById("back-btn").addEventListener("click", () => {
+  if (window.history.length > 1) {
+    window.history.back();
+  } else {
+    // fallback if no previous page
+    window.location.href = "3.html";
+  }
+});
 
 </script>
 </html>
